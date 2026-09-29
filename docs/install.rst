@@ -14,12 +14,11 @@ Instalação
   
 .. code-block:: console
 
-  conda install -c conda-forge  cptec-sazonal
+  conda install -c conda-forge  cptec-monan
 
 
 **Via pip**
   
 .. code-block:: console
 
-  pip install cptec-sazonal
-  
+  pip install cptec-monan
