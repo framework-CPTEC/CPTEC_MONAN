@@ -4,95 +4,89 @@ Como Usar CLI
 CLI
 ------
 
-import monanmodel.CPTEC_MONAN as MON
+# O que significa CLI
 
-Inicialização
--------------
+**CLI** é a sigla para **Command Line Interface** (*Interface de Linha de Comando*).
 
-Ex. de Pedido
-Durante a inicialização do construtor informações sobre os dados são exibidas
+## 🔹 O que é CLI
+- É uma forma de interagir com programas digitando comandos em um terminal ou console.
+- Diferente de uma interface gráfica (GUI), o usuário escreve instruções em texto.
+- É muito usada em ambientes de desenvolvimento, servidores e ferramentas técnicas porque permite automação e rapidez.
 
-mon = MON.model()
+## 🔹 Exemplos práticos
+- **[Git](ca://s?q=Git_CLI_comandos)** → `git clone`, `git commit`, `git push`
+- **[Conda](ca://s?q=Conda_CLI_comandos)** → `conda install pacote`
+- **[Pip](ca://s?q=Pip_CLI_comandos)** → `pip install cptec-monan`
+- **MONAN (via CLI)** →  
+  ```bash
+  monan_load --date 2026-09-28 --variable t2m
+  ```
 
+# Opções do CLI `monan_load`
 
-Pedido
-------
+O comando `monan_load` permite acessar e baixar dados do MONAN diretamente pela linha de comando.  
+Abaixo estão as principais opções:
 
-Data
-----
+## 🔹 Opções gerais
+- **`-h, --help`**  
+  Mostra a ajuda e encerra.
 
-date= '20260920'
+- **`--date DATE, -d DATE`**  
+  Define a data da condição inicial no formato `YYYYMMDDHH`.  
+  Exemplo: `--date 2026092800`
 
-.. warning::
-  Alterar a data para os valores exibidos na inicialização
+## 🔹 Controle de steps
+- **`--steps STEPS [STEPS ...], -s STEPS [STEPS ...]`**  
+  Lista de steps específicos.  
+  Exemplo: `--steps 0 3 6`
 
-Variaveis
----------
-Uma única variável
+- **`--range RANGE, -r RANGE`**  
+  Define o step máximo para baixar de `0` até `N`.  
+  Exemplo: `--range 12`
 
-var = ['prec']
+## 🔹 Variáveis e níveis
+- **`--var VAR [VAR ...], -v VAR [VAR ...]`**  
+  Variáveis a carregar.  
+  Exemplo: `--var t2m u v`
 
-Lista de variáveis
+- **`--level LEVEL [LEVEL ...], -l LEVEL [LEVEL ...]`**  
+  Níveis a carregar.  
+  Exemplo: `--level 1000 850`
 
-var = ['prec','t2mt']
+- **`--list_levels`**  
+  Lista todos os níveis disponíveis.
 
+- **`--list_vars`**  
+  Lista todas as variáveis disponíveis.
 
-**Lista de variáveis disponíveis:**
+## 🔹 Áreas e shapes
+- **`--shape SHAPE, -shp SHAPE`**  
+  Define a abreviação da área (shape).  
+  Exemplo: `--shape estados_sp`
 
-- prec -> precipitação
-- t2mt -> temperatura de 2 metros
-- psnm -> pressão ao nível do mar
-- role -> radiação de onda longa de saída
-- tp85 -> temperatura a 850 hPa
-- gz50 -> altura geopotencial em 500 hPa
-- uv85 -> vento zonal a 850 hPa
-- uv20 -> vento zonal a 200 hPa
-- vv85 -> vento meridional a 850 hPa
-- vv20 -> vento meridional a 200 hPa
+- **`--areas {continentes,paises,regioes,estados,bacias,biomas}`**  
+  Lista as áreas disponíveis por tipo.  
+  Exemplo: `--areas estados`
 
-Arquivos de dados de previsão calibrados são gerados para valores totais de temperatura e precipitação de 2 metros, probabilidade do tercil mais provável, probabilidade de anomalia positiva e anomalias.
+## 🔹 Saída
+- **`--prefix PREFIX, -p PREFIX`**  
+  Prefixo do nome do arquivo NetCDF salvo (default: `MONAN`).  
+  Exemplo: `--prefix MEUARQUIVO`
 
-- prec_ca -> precipitação calibrada
-- t2mt_ca -> temperatura de 2 metros calibrada
+- **`--path PATH, -o PATH`**  
+  Diretório de saída onde os arquivos NetCDF serão salvos (default: diretório atual).  
+  Exemplo: `--path ./dados`
 
+---
 
-Produto
--------
+## 🔹 Exemplos de uso
 
-product = 'mnth'
-
-**Lista de produtos disponíveis:**
-
-- seas -> média ou acúmulo de 3 meses, para os períodos 01 e 02
-- mnth -> média ou acúmulo de 30 dias, para os meses 01, 02, 03 e 04
-
-Campo
------
-
-field='anomalies'
-
-**Lista de campos calibrados determinísticos e probabilísticos disponíveis:**
-
-- anomalies -> anomalias de previsão
-- prob_positive_anomaly  -> probabilidade de previsão de anomalia positiva
-- prob_terciles -> probabilidade de previsão do tercil mais provável
-- totals -> valor total previsto
-
-
-Steps = Número da figura disponível por produto.
-------------------------------------------------
-
-step = '01'
-
-A opção pode ser omitida e trará todos os tempos do produto.
-
-- seas -> dado médio de 3 meses ou acumulação (01 e 02)
-- mnth -> dado médio ou acúmulo de 30 dias (01, 02, 03 e 04)
+### Baixar variáveis de superfície
+```bash
+monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp
+```
 
 
-Exemplo de solicitação do Pedido
---------------------------------
 
-f = saz.load(date='20240201', var='prec', product='mnth',field='anomalies')
 
 
