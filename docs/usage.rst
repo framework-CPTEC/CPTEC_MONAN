@@ -7,10 +7,10 @@ Acesso aos dados MONAN
 Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, oferecemos duas formas de acessar, filtrar e receber os dados:
 
 - `Interface de Linha de Comando (CLI) <usageCLI.html>`_ 
-  A maneira mais recente e prática, permitindo interação direta com o sistema.
+  - a maneira mais recente e prática, permitindo interação direta com o sistema.
 
-- `Biblioteca Python <usagePython.html>`_ 
-  O método tradicional, que continua disponível para quem prefere integrar o MONAN em seus scripts e aplicações.
+- `Biblioteca Python <usagePython.html>`_  - 
+  o método tradicional, que continua disponível para quem prefere integrar o MONAN em seus scripts e aplicações.
 
 
 Comparativo: CLI vs Biblioteca Python
@@ -25,18 +25,21 @@ Comparativo: CLI vs Biblioteca Python
 Horários de inicialização do modelo MONAN
 ------------------------------------------
 
-  date = 'YYYYMMDD' ou
-  date = 'YYYYMMDDHH' - não informar HH usa o default **00 UTC**
-
   O modelo **MONAN** roda com dois horários de inicialização principais:
 
   - **00 UTC** → fornece previsões de até **11 dias**.  
   - **12 UTC** → fornece previsões de até **5 dias**.
 
-  Dessa forma, o usuário pode escolher entre uma previsão mais longa (00 UTC) ou uma previsão mais curta e atualizada (12 UTC), conforme sua necessidade.
+  Para acessar uma inicialização especifica utilizar a opção `date`.
 
+  **date = 'YYYYMMDD' ou date = 'YYYYMMDDHH'**
 
 .. note::
+
+  Caso não informar **HH** - usa o default **00 UTC**
+
+  Caso não informar a opção **date** usa a data atual como default
+
 
 Intervalo de previsão do MONAN
 ------------------------------
@@ -55,7 +58,7 @@ Intervalo de previsão do MONAN
 
   steps = **<int>**
   
-  Define o número de steps que serão pedidos
+  Define o número de horas de steps que serão pedidos.
   
   Ex. steps = ``6`` 
   

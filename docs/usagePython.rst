@@ -101,17 +101,21 @@ Ler dados do MONAN
 
 O pacote **MONAN** oferece duas formas principais de leitura de dados:
 
-- **[load_shape](ca://s?q=Explicacao_load_shape_MONAN)**  
+- **load_shape**  
+
   Utilizado quando se deseja aplicar um **recorte espacial** nos dados.  
+
   Permite selecionar áreas específicas (como estados, regiões ou continentes) usando abreviações de shape.  
   Exemplo: `shp="estados_sp"` para restringir os dados ao estado de São Paulo.
 
-- **[load](ca://s?q=Explicacao_load_MONAN)**  
+- **load**  
+
   Utilizado para baixar dados **sem recorte de área**, ou seja, em domínio global ou completo.  
   É indicado quando o objetivo é trabalhar com a totalidade dos dados disponíveis, sem limitar a região.
 
 
 ### Baixar variáveis de superfície e com recorte de área
+
 >>> f = mon.load_shape(date="2026092800", var=["t2m", "u10m", "v10m"], steps=[0,3,6], shp="estados_sp")
 
 

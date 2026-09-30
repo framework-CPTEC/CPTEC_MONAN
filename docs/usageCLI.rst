@@ -7,6 +7,7 @@ Interface de Linha de Comando (CLI)
 - É muito usada em ambientes de desenvolvimento, servidores e ferramentas técnicas porque permite automação e rapidez.
 
 **Exemplos práticos**
+
 - **[Git]** → `git clone`, `git commit`, `git push`
 
 - **[Conda]** → `conda install pacote`
@@ -19,9 +20,12 @@ Interface de Linha de Comando (CLI)
 Opções do CLI `monan_load`
 --------------------------
 
-O comando `monan_load` permite acessar e baixar dados do MONAN diretamente pela linha de comando.  
+O comando `monan_load` é a interface de linha de comando para acessar e baixar dados do **MONAN**.  
 
-Abaixo estão as principais opções:
+Ele oferece um conjunto completo de parâmetros que permitem configurar **data de inicialização**, **steps de previsão**, **variáveis e níveis atmosféricos**, **recortes espaciais (shapes)** e **opções de saída**.  
+
+A seguir estão as opções disponíveis, organizadas por categoria:
+
 
 Opções gerais
 -------------
@@ -101,11 +105,11 @@ Exemplos de uso
 
 **Baixar variáveis de superfície**
 
-`monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp`
+$ monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp
 
 **Baixar variáveis de niveis (1000/850)**
 
-`monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6`
+$ monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6
 
 .. warning::
    É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  
