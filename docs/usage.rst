@@ -1,4 +1,5 @@
-# Como Usar Biblioteca Python
+Como Usar
+=========
 
 ## Acesso aos dados MONAN
 
@@ -13,15 +14,10 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
 
 # Comparativo: CLI vs Biblioteca Python
 
-| Aspecto               | **[CLI](ca://s?q=Quando_usar_CLI_MONAN)**                              | **[Biblioteca Python](ca://s?q=Quando_usar_biblioteca_Python_MONAN)** |
-|------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
-| **Facilidade de uso**  | Comandos prontos, sem necessidade de programação                       | Requer conhecimento de Python e bibliotecas científicas                |
-| **Velocidade**         | Ideal para tarefas rápidas e repetitivas                               | Mais detalhado, mas flexível                                           |
-| **Automação**          | Scripts de shell e pipelines simples                                   | Integração em projetos complexos e notebooks                           |
-| **Flexibilidade**      | Limitada aos parâmetros disponíveis                                    | Total, com uso de `numpy`, `pandas`, `xarray` e outras ferramentas     |
-| **Perfil do usuário**  | Usuários menos técnicos ou que querem praticidade                      | Pesquisadores e desenvolvedores que precisam controle total            |
-| **Exemplo de uso**     | `monan_load --date 2026-09-28 --variable t2m --output ./dados`         | `dados = CPTEC_MONAN(date="2026-09-28").get_variable("t2m")`           |
+|pic1|
 
+.. |pic1| image:: _static/AspectosCLI_Python.png
+   :width: 80%
 
 .. note::
 
@@ -29,7 +25,6 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
 
   date = 'YYYYMMDD' ou
   date = 'YYYYMMDDHH' - não informar HH usa o default **00 UTC**
-  
 
   O modelo **MONAN** roda com dois horários de inicialização principais:
 
@@ -41,13 +36,25 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
 
 .. note::
 
-  **Definição de Steps**
+  **Intervalo de previsão do MONAN**
+
+  O modelo **MONAN** gera saídas em intervalos regulares de tempo.  
+  Cada **step** corresponde a uma previsão com avanço de **3 horas** em relação ao anterior.
+
+  Isso significa que os dados disponíveis seguem a sequência: 0h, 3h, 6h, 9h, 12h, e assim por diante, até o limite definido pela inicialização (00 UTC ou 12 UTC).
+
+  - **00 UTC** → fornece previsões de até **264 horas**.  
+  - **12 UTC** → fornece previsões de até **120 horas**.
+
+  Dessa forma, o número máximo de steps é:
+  - **264** para o modelo inicializado às **00 UTC**.  
+  - **120** para o modelo inicializado às **12 UTC**.
 
   steps = **<int>**
   
   Define o número de steps que serão pedidos
   
-  Ex. steps = ``6``
+  Ex. steps = ``6`` 
   
   O pedido será os steps ``0,3,6``
   
@@ -55,6 +62,7 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
   
   Define os steps que serão pedidos 
 
+  O step do MONAN é de 3 em 3 horas
   Ex. steps =  ``[0,3,6]``
   O pedido será os steps específicos pedidos ``0,3,6,9``
 
