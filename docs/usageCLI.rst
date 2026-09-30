@@ -14,9 +14,13 @@ CLI
 - É muito usada em ambientes de desenvolvimento, servidores e ferramentas técnicas porque permite automação e rapidez.
 
 **Exemplos práticos**
+
 - **[Git]** → `git clone`, `git commit`, `git push`
+
 - **[Conda]** → `conda install pacote`
+
 - **[Pip]** → `pip install cptec-monan`
+
 - **MONAN (via CLI)** →  
   ```bash
   monan_load --date 2026-09-28 --variable t2m

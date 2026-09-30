@@ -6,20 +6,19 @@ Acesso aos dados MONAN
 
 Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, oferecemos duas formas de acessar, filtrar e receber os dados:
 
-- [Interface de Linha de Comando (CLI)](usageCLI.html)  
+- `Interface de Linha de Comando (CLI) <usageCLI.html>`_ 
   A maneira mais recente e prática, permitindo interação direta com o sistema.
 
-- [Biblioteca Python](usagePython.html)  
+- `Biblioteca Python <usagePython.html>`_ 
   O método tradicional, que continua disponível para quem prefere integrar o MONAN em seus scripts e aplicações.
 
 
 Comparativo: CLI vs Biblioteca Python
 -------------------------------------
 
-|pic1|
-
-.. |pic1| image:: _static/AspectosCLI_Python.png
-   :width: 80%
+.. image:: _static/AspectosCLI_Python.png
+   :width: 90%
+   :align: center
 
 .. note::
 
