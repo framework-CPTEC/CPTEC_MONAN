@@ -1,5 +1,5 @@
 Como Usar CLI
-=========
+=============
 
 CLI
 ------
@@ -22,12 +22,15 @@ CLI
   monan_load --date 2026-09-28 --variable t2m
   ```
 
-# Opções do CLI `monan_load`
+Opções do CLI `monan_load`
+--------------------------
 
 O comando `monan_load` permite acessar e baixar dados do MONAN diretamente pela linha de comando.  
 Abaixo estão as principais opções:
 
-## 🔹 Opções gerais
+Opções gerais
+-------------
+
 - **`-h, --help`**  
   Mostra a ajuda e encerra.
 
@@ -35,7 +38,9 @@ Abaixo estão as principais opções:
   Define a data da condição inicial no formato `YYYYMMDDHH`.  
   Exemplo: `--date 2026092800`
 
-## 🔹 Controle de steps
+Controle de steps
+-----------------
+
 - **`--steps STEPS [STEPS ...], -s STEPS [STEPS ...]`**  
   Lista de steps específicos.  
   Exemplo: `--steps 0 3 6`
@@ -44,7 +49,9 @@ Abaixo estão as principais opções:
   Define o step máximo para baixar de `0` até `N`.  
   Exemplo: `--range 12`
 
-## 🔹 Variáveis e níveis
+Variáveis e níveis
+------------------
+
 - **`--var VAR [VAR ...], -v VAR [VAR ...]`**  
   Variáveis a carregar.  
   Exemplo: `--var t2m u v`
@@ -59,7 +66,9 @@ Abaixo estão as principais opções:
 - **`--list_vars`**  
   Lista todas as variáveis disponíveis.
 
-## 🔹 Áreas e shapes
+Áreas e shapes
+--------------
+
 - **`--shape SHAPE, -shp SHAPE`**  
   Define a abreviação da área (shape).  
   Exemplo: `--shape estados_sp`
@@ -68,7 +77,9 @@ Abaixo estão as principais opções:
   Lista as áreas disponíveis por tipo.  
   Exemplo: `--areas estados`
 
-## 🔹 Saída
+Saída / Output arquivo
+----------------------
+
 - **`--prefix PREFIX, -p PREFIX`**  
   Prefixo do nome do arquivo NetCDF salvo (default: `MONAN`).  
   Exemplo: `--prefix MEUARQUIVO`
@@ -79,13 +90,22 @@ Abaixo estão as principais opções:
 
 ---
 
-## 🔹 Exemplos de uso
+Exemplos de uso
+---------------
 
 ### Baixar variáveis de superfície
 ```bash
 monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp
 ```
 
+### Baixar variáveis de niveis (1000/850)
+```bash
+monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6 
+```
+
+.. warning::
+   É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  
+   Dessa forma, o usuário pode combinar diferentes tipos de dados em uma única requisição ao modelo MONAN.
 
 
 
