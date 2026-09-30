@@ -1,7 +1,8 @@
 Como Usar
 =========
 
-## Acesso aos dados MONAN
+Acesso aos dados MONAN
+----------------------
 
 Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, oferecemos duas formas de acessar, filtrar e receber os dados:
 
@@ -12,7 +13,8 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
   O método tradicional, que continua disponível para quem prefere integrar o MONAN em seus scripts e aplicações.
 
 
-# Comparativo: CLI vs Biblioteca Python
+Comparativo: CLI vs Biblioteca Python
+-------------------------------------
 
 |pic1|
 
@@ -21,7 +23,8 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
 
 .. note::
 
-  **Horários de inicialização do modelo MONAN**
+Horários de inicialização do modelo MONAN
+------------------------------------------
 
   date = 'YYYYMMDD' ou
   date = 'YYYYMMDDHH' - não informar HH usa o default **00 UTC**
@@ -36,7 +39,8 @@ Na nova versão dos pacotes de distribuição dos **Modelos Numéricos MONAN**, 
 
 .. note::
 
-  **Intervalo de previsão do MONAN**
+Intervalo de previsão do MONAN
+------------------------------
 
   O modelo **MONAN** gera saídas em intervalos regulares de tempo.  
   Cada **step** corresponde a uma previsão com avanço de **3 horas** em relação ao anterior.

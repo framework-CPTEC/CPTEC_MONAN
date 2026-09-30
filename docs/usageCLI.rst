@@ -1,22 +1,22 @@
-Como Usar CLI
+Interface de Linha de Comando (CLI)
 =============
 
 CLI
 ------
 
-# O que significa CLI
+**O que significa CLI**
 
 **CLI** é a sigla para **Command Line Interface** (*Interface de Linha de Comando*).
 
-## 🔹 O que é CLI
+**O que é CLI**
 - É uma forma de interagir com programas digitando comandos em um terminal ou console.
 - Diferente de uma interface gráfica (GUI), o usuário escreve instruções em texto.
 - É muito usada em ambientes de desenvolvimento, servidores e ferramentas técnicas porque permite automação e rapidez.
 
-## 🔹 Exemplos práticos
-- **[Git](ca://s?q=Git_CLI_comandos)** → `git clone`, `git commit`, `git push`
-- **[Conda](ca://s?q=Conda_CLI_comandos)** → `conda install pacote`
-- **[Pip](ca://s?q=Pip_CLI_comandos)** → `pip install cptec-monan`
+**Exemplos práticos**
+- **[Git]** → `git clone`, `git commit`, `git push`
+- **[Conda]** → `conda install pacote`
+- **[Pip]** → `pip install cptec-monan`
 - **MONAN (via CLI)** →  
   ```bash
   monan_load --date 2026-09-28 --variable t2m
@@ -88,17 +88,16 @@ Saída / Output arquivo
   Diretório de saída onde os arquivos NetCDF serão salvos (default: diretório atual).  
   Exemplo: `--path ./dados`
 
----
 
 Exemplos de uso
 ---------------
 
-### Baixar variáveis de superfície
+**Baixar variáveis de superfície**
 ```bash
 monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp
 ```
 
-### Baixar variáveis de niveis (1000/850)
+**Baixar variáveis de niveis (1000/850)**
 ```bash
 monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6 
 ```

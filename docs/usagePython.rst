@@ -1,4 +1,4 @@
-Como Usar Python
+Biblioteca Python
 ================
 
 
@@ -96,3 +96,30 @@ Variables at different levels: ['t', 'u', 'v', 'rh', 'g', 'omega', 'spechum']
 Available levels: ['1000', '925', '850', '775', '700', '500', '400', '300', '250', '200', '150', '100', '70', '50', '30', '20', '10', '3']
 
 
+Ler dados do MONAN
+------------------
+
+O pacote **MONAN** oferece duas formas principais de leitura de dados:
+
+- **[load_shape](ca://s?q=Explicacao_load_shape_MONAN)**  
+  Utilizado quando se deseja aplicar um **recorte espacial** nos dados.  
+  Permite selecionar áreas específicas (como estados, regiões ou continentes) usando abreviações de shape.  
+  Exemplo: `shp="estados_sp"` para restringir os dados ao estado de São Paulo.
+
+- **[load](ca://s?q=Explicacao_load_MONAN)**  
+  Utilizado para baixar dados **sem recorte de área**, ou seja, em domínio global ou completo.  
+  É indicado quando o objetivo é trabalhar com a totalidade dos dados disponíveis, sem limitar a região.
+
+
+### Baixar variáveis de superfície e com recorte de área
+>>> f = mon.load_shape(date="2026092800", var=["t2m", "u10m", "v10m"], steps=[0,3,6], shp="estados_sp")
+
+
+### Baixar variáveis de niveis (1000/850)
+
+>>> f = mon.load( date="2026092800", var=["u","v"], level=[1000,850], steps=[0,3,6]) 
+
+
+.. warning::
+   É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  
+   Dessa forma, o usuário pode combinar diferentes tipos de dados em uma única requisição ao modelo MONAN.
