@@ -44,17 +44,17 @@ Controle de steps
 - **`--steps STEPS [STEPS ...], -s STEPS [STEPS ...]`**  
   
   Lista de steps específicos.  
-  Exemplo: `--steps 0 3 6`
+  Exemplo: ``--steps 0 3 6``
 
 - **`--range RANGE, -r RANGE`**  
 
-- <code>--range RANGE, -r RANGE</code>
+``-r RANGE``, ``--range RANGE``
 
-.. code-block:: shell
-  --steps STEPS [STEPS ...], -s STEPS [STEPS ...]
+- **``-r RANGE``, ``--range RANGE``** 
+
 
   Define o step máximo para baixar de `0` até `N`.  
-  Exemplo: `--range 12`
+  Exemplo: ``--range 12``
 
 Variáveis e níveis
 ------------------
