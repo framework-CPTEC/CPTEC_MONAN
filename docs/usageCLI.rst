@@ -36,7 +36,11 @@ Opções gerais
 - ``--date DATE, -d DATE``  
 
   Define a data da condição inicial no formato `YYYYMMDDHH.  
-  Exemplo: ``--date 2026092800``
+  Exemplo: ``--date 2026092800`` 
+
+.. warning::
+
+  Trocar por data atual ou consultar datas no Dataserver do CPTEC.
 
 Controle de steps
 -----------------
@@ -115,9 +119,11 @@ Exemplos de uso
   monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6
 
 .. warning::
+
    É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  
    Dessa forma, o usuário pode combinar diferentes tipos de dados em uma única requisição ao modelo MONAN.
 
+.. warning::
 
-
+  ``--date 2026092800`` - Trocar por data atual ou consultar datas no Dataserver do CPTEC.
 

@@ -40,6 +40,10 @@ Horários de inicialização do modelo MONAN
 
   Caso não informar a opção **date** usa a data atual como default
 
+.. warning::
+
+Datas disponíveis no MONAN - para verificar as datas de inicialização disponíveis, consulte o endereço oficial do servidor de dados:  `Dataserver CPTEC <https://dataserver.cptec.inpe.br/dataserver_modelos/monan/10km/brutos/>`_. Nesse diretório estão listadas todas as datas que podem ser utilizadas como condição inicial para requisições ao modelo **MONAN**.
+
 
 Intervalo de previsão do MONAN
 ------------------------------
@@ -76,3 +80,6 @@ Intervalo de previsão do MONAN
   Exemplo: `steps = [0, 3, 6]` → retorna apenas os steps **0, 3 e 6**.
   
 
+.. image:: _static/t2m_bra.png
+   :width: 90%
+   :align: center

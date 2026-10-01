@@ -21,10 +21,7 @@ Definição de Steps
 
    Para saber mais detalhes sobre o uso da opção **steps** consultar `Intervalo de Previsão <usage.html#intervalo-de-previsao-do-monan>`_
 
-.. warning::
-  O step do MONAN é de 3 em 3 horas
-  Ex. steps =  ``[0,3,6,9]``
-  O pedido será os steps específicos pedidos ``0,3,6,9``
+Exemplo de código para a leitura e filtragem de dados do MONAN.
 
 .. code-block:: console
 
@@ -37,7 +34,8 @@ Definição de Steps
   mon = MON.model()
 
   # Data da IC
-  date = '20260901'
+  # Trocar pela data atual ou consultar dataserver do CPTEC
+  date = '20260901' 
 
   # Variaveis 
   vars = ['t']
@@ -46,10 +44,10 @@ Definição de Steps
   levels = [1000]
 
   # Steps = Numero de simulações futuras a partir da inicialização do modelo
-  steps = 1
+  steps = [0,3,6]
 
   # Utizando o método load
-  f = bam.load(date=date, var=vars,level=levels, steps=steps)
+  f = mon.load(date=date, var=vars,level=levels, steps=steps)
   
   # Imprimir os valores recuperados
   print(f)
@@ -135,5 +133,6 @@ America do Norte - continentes_na
 
 
 .. warning::
+
    É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  
    Dessa forma, o usuário pode combinar diferentes tipos de dados em uma única requisição ao modelo MONAN.
