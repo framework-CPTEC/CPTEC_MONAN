@@ -10,13 +10,6 @@ Instalação
   conda activate cptec
 
 
-**Via conda**
-  
-.. code-block:: console
-
-  conda install -c conda-forge  cptec-monan
-
-
 **Via pip**
   
 .. code-block:: console
