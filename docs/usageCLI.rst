@@ -1,10 +1,8 @@
 Interface de Linha de Comando (CLI)
 =============
 
-**O que é CLI**
-- É uma forma de interagir com programas digitando comandos em um terminal ou console.
-- Diferente de uma interface gráfica (GUI), o usuário escreve instruções em texto.
-- É muito usada em ambientes de desenvolvimento, servidores e ferramentas técnicas porque permite automação e rapidez.
+A interface de linha de comando (CLI) é uma forma de interagir com programas digitando comandos diretamente em um terminal ou console; diferente de uma interface gráfica (GUI), onde o usuário clica em elementos visuais, na CLI as instruções são escritas em texto. Esse método é amplamente utilizado em ambientes de desenvolvimento, servidores e ferramentas técnicas porque permite maior automação, rapidez e controle sobre as operações.
+
 
 **Exemplos práticos**
 
@@ -20,9 +18,10 @@ Interface de Linha de Comando (CLI)
 Opções do CLI `monan_load`
 --------------------------
 
-O comando `monan_load` é a interface de linha de comando para acessar e baixar dados do **MONAN**.  
+O comando `monan_load` é a interface de linha de comando para acessar e baixar dados do **MONAN**. Após a instalação do pacote, o comando fica automaticamente disponível no ambiente de instalação, permitindo que seja executado diretamente no terminal.  
 
-Ele oferece um conjunto completo de parâmetros que permitem configurar **data de inicialização**, **steps de previsão**, **variáveis e níveis atmosféricos**, **recortes espaciais (shapes)** e **opções de saída**.  
+Ele oferece um conjunto completo de parâmetros que permitem configurar **data de inicialização**, **steps de previsão**, **variáveis e níveis atmosféricos**, **recortes espaciais (shapes)** e **opções de saída**.
+
 
 A seguir estão as opções disponíveis, organizadas por categoria:
 
@@ -48,7 +47,12 @@ Controle de steps
   Exemplo: `--steps 0 3 6`
 
 - **`--range RANGE, -r RANGE`**  
-  
+
+- <code>--range RANGE, -r RANGE</code>
+
+.. code-block:: shell
+  --steps STEPS [STEPS ...], -s STEPS [STEPS ...]
+
   Define o step máximo para baixar de `0` até `N`.  
   Exemplo: `--range 12`
 
@@ -105,11 +109,15 @@ Exemplos de uso
 
 **Baixar variáveis de superfície**
 
-$ monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp
+.. code-block:: shell
+
+  monan_load --date 2026092800 --var t2m u10m v10m --steps 0 3 6 --shape estados_sp
 
 **Baixar variáveis de niveis (1000/850)**
 
-$ monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6
+.. code-block:: console
+
+  monan_load --date 2026092800 --var t u v --levels 1000 850 --steps 0 3 6
 
 .. warning::
    É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  

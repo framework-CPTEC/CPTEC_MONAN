@@ -53,22 +53,26 @@ Intervalo de previsão do MONAN
   - **12 UTC** → fornece previsões de até **120 horas**.
 
   Dessa forma, o número máximo de steps é:
-  - **264** para o modelo inicializado às **00 UTC**.  
+
+  - **264** para o modelo inicializado às **00 UTC**. 
+
   - **120** para o modelo inicializado às **12 UTC**.
 
-  steps = **<int>**
-  
-  Define o número de horas de steps que serão pedidos.
-  
-  Ex. steps = ``6`` 
-  
-  O pedido será os steps ``0,3,6``
-  
-  steps = **<list>**
-  
-  Define os steps que serão pedidos 
 
-  O step do MONAN é de 3 em 3 horas
-  Ex. steps =  ``[0,3,6]``
-  O pedido será os steps específicos pedidos ``0,3,6,9``
+- **Step único** → define até quantas horas de previsão serão baixadas.  
+
+  steps = **<int>**
+
+  Exemplo: `steps = 6` → retorna os steps **0, 3 e 6**.
+
+.. warning::
+  Usando a Interface de Linha de Comando (CLI) essa opção é a **`--range RANGE, -r RANGE`**.
+  Exemplo: `--range 6` → retorna os steps **0, 3 e 6**.
+
+- **Lista de steps** → permite especificar exatamente quais steps serão baixados.  
+
+  steps = **<list>**
+
+  Exemplo: `steps = [0, 3, 6]` → retorna apenas os steps **0, 3 e 6**.
+  
 
