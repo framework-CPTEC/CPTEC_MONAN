@@ -5,146 +5,91 @@ Exemplos Python
    Alterar para os valores exibidos na inicialização.
 
    Inicialização comando:
-   saz = SAZ.model()
+   mon = MON.model()
 
   
 .. note::
-  #### The Brazilian Global Atmospheric Model (TQ0666L064 / Hybrid) #####
+#### Model for Ocean-laNd-Atmosphere PredictioN - (MONAN) (10km) #####
 
-  --------------------
-  Forecast data available for reading.
-  2024-01-01 - 2024-02-01 - 2024-03-01 - 2024-04-01 - 2024-05-01
-  2024-06-01 - 2024-07-01 - 
+Forecast data available for reading between 20260921 and 20261001.
 
-  --------------------
-  Variables: ['prec', 'prec_ca', 't2mt', 't2mt_ca', 'psnm', 'role', 'tp85', 'zg50', 'uv85', 'uv20', 'vv85', 'vv20', 'cr85', 
-  'cr20']
+Surface variables: ['u10m', 'v10m', 't2m', 'slp', 'psfc', 'landmask', 'sbcape', 'sbcin', 'pw', 'precip', 'rainnc', 'acswdnb', 'aclwupb', 'aclwupt', 'q2', 'hfx', 'lh', 'cldfrac_tot_UPP', 'terrain'].
 
-  --------------------
-  Products: ['seas', 'mnth']
+Level variables:   ['t', 'u', 'v', 'rh', 'g', 'omega', 'spechum'].
 
-  --------------------
-  Field: ['anomalies', 'prob_positve_anomaly', 'prob_terciles', 'totals']
+levels (hPa): ['1000', '925', '850', '775', '700', '500', '400', '300', '250', '200', '150', '100', '70', '50', '30', '20', '10', '3'].
 
-  --------------------
+Frequency: every 3 hours  [0,3,6,...,264].
+
+.. warning::
+     ``date = '2026092800'`` - Trocar por data atual ou consultar datas no Dataserver do CPTEC.
   
 
 Recuperar Dados do Modelos Numérico SubSazonal
 ----------------------------------------------
 .. code-block:: console
 
-  # Importa a biblioteca
-  import sazonal.CPTEC_SAZ as SAZ
+  # Importar a biblioteca
+  import monanmodel.CPTEC_MONAN as MON
 
-  # Inicializa o construtor
-  saz = SAZ.model()
+  # Inicializar o construtor
+  mon = MON.model()
 
   # Data Condição Inicial (IC)
-  date = '20240401'
+  date = '2026092800'
 
-  # Variável
-  var = ['prec']
+  # Variáveis
+  vars = ['t']
 
-  # Produto
-  product = 'seas' 
+  # Níveis
+  levels = [1000]
 
-  # Campo
-  field = 'anomalies' 
+  # Steps = Número de simulações futuras a partir da inicialização do modelo
+  steps = [0]
 
-  # Requisição dos dados
-  f = saz.load(date=date, var=var, product=product ,field=field) 
+  # Utizando o método load
+  f = mon.load(date=date, var=vars,level=levels, steps=steps)
 
   # Imprimir o Xarray
   print(f)
-  # <xarray.Dataset> Size: 594kB
-  # Dimensions:  (lat: 192, time: 2, lon: 384)
-  # Coordinates:
-  #  * lat      (lat) float64 2kB -89.28 -88.36 -87.42 -86.49 ... 87.42 88.36 89.28
-  #  * time     (time) datetime64[ns] 16B 2024-04-01 2024-07-01
-  #  * lon      (lon) float64 3kB -180.0 -179.1 -178.1 -177.2 ... 177.2 178.1 179.1
-  # Data variables:
-  #    prec     (time, lat, lon) float32 590kB 3.252 3.252 3.252 ... 1.045 1.045
-  # Attributes:
-  #    center:          National Institute for Space Research - INPE
-  #    model:           The Brazilian Global Atmospheric Model V1.2 (TQ0126L042 ...
-  #    initialization:  2024-04-01
-  #    field:           Forecast Anomalies
- 
-
-Download :download:`get_data_sub_oper.py <examples/get_data_sub_oper.py>`.
-
-.. _reference-name:
+  
 
 Recuperar Dados e Salvar em NetCDF
 -------------------------------
 
+.. warning:: 
+   Foram implementados mecanismos para prevenir travamentos e garantir maior eficiência no processamento, evitando o uso excessivo de memória. O pedido corresponde a aproximadamente **3,19 GB** de dados; por isso, recomenda-se utilizar a função **`mon.save_by_day()`** para gravar em formato NetCDF, assegurando que a operação seja concluída de forma estável e otimizada.
+
+
 .. code-block:: console
 
   # Importa a biblioteca
-  import sazonal.CPTEC_SAZ as SAZ
+  import monanmodel.CPTEC_MONAN as MON
 
   # Inicializa o construtor
-  saz = SAZ.model()
+  mon = MON.model()
 
   # Data Condição Inicial (IC)
-  date = '20240401'
+  date = '2026092800'
 
-  # Variável
-  var = ['prec']
+  # Variáveis
+  vars = ['t']
 
-  # Produto
-  product = 'seas' 
+  # Niveis
+  levels = [1000,925,850]
 
-  # Campo
-  field = 'anomalies' 
+  #Steps = Numero de simulações futuras a partir da inicialização do modelo
+  steps = 120
 
-  # Requisição dos dados
-  f = saz.load(date=date, var=var, product=product ,field=field) 
+  # Utizando o método load
+  f = mon.load(date=date, var=vars,level=levels, steps=steps)
 
-  # Salvar o XArray para NetCDF
-  f.to_netcdf('arquivo.nc')
+  # Salvar para NetCDF
+  mon.save_by_day(f)
 
- 
-
-Download :download:`get_sub_netcdf.py <examples/get_sub_netcdf.py>`.
 
 Recuperar Dados e Plotar Figura
 -------------------------------
-
-.. code-block:: console
-
-  # Importa a ferramenta
-  import sazonal.CPTEC_SAZ as SAZ
-  import matplotlib.pyplot as plt
-
-  # Inicializa o construtor
-  saz = SAZ.model()
-
-  # Data Condição Inicial (IC)
-  date = '20240401'
-
-  # Variável
-  var = ['prec']
-
-  # Produto
-  product = 'seas' 
-
-  # Campo
-  field = 'anomalies' 
-
-  # Requisição dos dados
-  f = saz.load(date=date, var=var, product=product ,field=field) 
-
-  # Plotar a variável prec
-  f.prec.sel(time="2024-04-01").plot()
-  plt.show()
-
-  
-
-Download :download:`plot_sub_figure.py <examples/plot_sub_figure.py>`.
-
-Recuperar Dados com recorte de área
------------------------------------
 
 .. code-block:: console
 
@@ -153,56 +98,46 @@ Recuperar Dados com recorte de área
 
 .. code-block:: console
 
-   import sazonal.CPTEC_SAZ as SAZ
-   import matplotlib.pyplot as plt
-   import cartopy.crs as ccrs
-   import cartopy.feature as cfeature
+import monanmodel.CPTEC_MONAN as MON
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
 
-   # Inicializa o construtor
-   saz = SAZ.model()
-   # Filtrar area definida
-   saz.dict['area']['reduce'] = True 
-   saz.dict['area']['minlat'] = -34.44
-   saz.dict['area']['maxlat'] = -21.43
-   saz.dict['area']['minlon'] = 301.14
-   saz.dict['area']['maxlon'] = 320.57
-   # Requisição dos dados
-   f = saz.load(date='20240401', var='prec', product='mnth' ,field='anomalies')
-   # Definir tamanho da figura
-   fig = plt.figure(figsize=(10,8))
-   # Setar figura unica
-   ax = fig.add_subplot(111, projection=ccrs.PlateCarree())
-   # Colocar  Linhas de Borda dos paises e linhas costeiras
-   ax.add_feature(cfeature.COASTLINE,color='grey')
-   ax.add_feature(cfeature.BORDERS,color='grey')
-   # Definir Regiao do Brasil
-   ax.set_extent([-90,-30,10,-41], ccrs.PlateCarree())
-   # Setar estados do Brasil
-   states = cfeature.NaturalEarthFeature(category='cultural',
-                                            name='admin_1_states_provinces_lines',
-                                            scale='50m', facecolor='none')
-   # Colocar Estados Brasil
-   ax.add_feature(states, edgecolor='gray')
-   # Plotar variavel
-   f.prec.sel(time="2024-04-01").plot()
-   plt.show()
+# Inicializa o construtor
+mon = MON.model()
 
 
-|pic1|
+# Requisição dos dados
+f = mon.load_shape(date='20260901', var=['t2m'], shp='paises_bra')
 
-.. |pic1| image:: _static/pic1.png
-   :width: 80%
+# Definir tamanho da figura
+fig = plt.figure(figsize=(10,8))
 
-Download :download:`plot_sub_filter.py <examples/prec_sub_filter.py>`.
+# Setar figura unica
+ax = fig.add_subplot(111, projection=ccrs.PlateCarree())
 
-  
-.. note::
-   Para filtrar somente os dados do Brasil existe uma configuração padrão. Utilizar somente
-   o comando: 
-   **sub.dict['area']['reduce'] = True**    
+# Colocar  Linhas de Borda dos paises e linhas costeiras
+ax.add_feature(cfeature.COASTLINE,color='grey')
+ax.add_feature(cfeature.BORDERS,color='grey')
 
-|pic2|
+# Definir Regiao do Brasil
+ax.set_extent([-90,-30,10,-41], ccrs.PlateCarree())
 
-.. |pic2| image:: _static/pic2.png
-   :width: 80%
-   
+# Setar estados do Brasil
+states = cfeature.NaturalEarthFeature(category='cultural',
+                                         name='admin_1_states_provinces_lines',
+                                         scale='50m', facecolor='none')
+# Colocar Estados Brasil
+ax.add_feature(states, edgecolor='gray')
+
+# Plotar variavel
+f.t2m.sel(Time="2026-09-01").plot(cmap="coolwarm")
+
+plt.show()
+
+ 
+.. image:: _static/t2m_bra.png
+   :width: 90%
+   :align: center
+
+

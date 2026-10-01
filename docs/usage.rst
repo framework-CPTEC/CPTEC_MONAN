@@ -80,6 +80,3 @@ Intervalo de previsão do MONAN
   Exemplo: `steps = [0, 3, 6]` → retorna apenas os steps **0, 3 e 6**.
   
 
-.. image:: _static/t2m_bra.png
-   :width: 90%
-   :align: center

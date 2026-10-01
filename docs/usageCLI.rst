@@ -125,5 +125,5 @@ Exemplos de uso
 
 .. warning::
 
-  ``--date 2026092800`` - Trocar por data atual ou consultar datas no Dataserver do CPTEC.
+  ``--date 2026092800`` - Trocar por data atual ou consultar datas disponíveis no Dataserver do CPTEC.
 
