@@ -66,8 +66,8 @@ Intervalo de previsão do MONAN
   Exemplo: `steps = 6` → retorna os steps **0, 3 e 6**.
 
 .. warning::
-  Usando a Interface de Linha de Comando (CLI) essa opção é a **`--range RANGE, -r RANGE`**.
-  Exemplo: `--range 6` → retorna os steps **0, 3 e 6**.
+  Usando a Interface de Linha de Comando (CLI) essa opção é a ``--range RANGE, -r RANGE``.
+  Exemplo: ``--range 6`` → retorna os steps **0, 3 e 6**.
 
 - **Lista de steps** → permite especificar exatamente quais steps serão baixados.  
 

@@ -12,7 +12,7 @@ A interface de linha de comando (CLI) é uma forma de interagir com programas di
 
 - **[Pip]** → `pip install cptec-monan`
 
-- **MONAN (via CLI)** → `monan_load --date 2026-09-28 --var t2m`
+- **MONAN (via CLI)** → `monan_load -d 2026-09-28 -v t2m`
 
 
 Opções do CLI `monan_load`
@@ -29,29 +29,24 @@ A seguir estão as opções disponíveis, organizadas por categoria:
 Opções gerais
 -------------
 
-- **`-h, --help`**  
+- ``-h, --help`` 
 
   Mostra a ajuda e encerra.
 
-- **`--date DATE, -d DATE`**  
+- ``--date DATE, -d DATE``  
 
   Define a data da condição inicial no formato `YYYYMMDDHH.  
-  Exemplo: `--date 2026092800`
+  Exemplo: ``--date 2026092800``
 
 Controle de steps
 -----------------
 
-- **`--steps STEPS [STEPS ...], -s STEPS [STEPS ...]`**  
+- ``--steps STEPS [STEPS ...], -s STEPS [STEPS ...]``  
   
   Lista de steps específicos.  
   Exemplo: ``--steps 0 3 6``
 
-- **`--range RANGE, -r RANGE`**  
-
-``-r RANGE``, ``--range RANGE``
-
-- **``-r RANGE``, ``--range RANGE``** 
-
+- ``--range RANGE, -r RANGE``  
 
   Define o step máximo para baixar de `0` até `N`.  
   Exemplo: ``--range 12``
@@ -59,49 +54,49 @@ Controle de steps
 Variáveis e níveis
 ------------------
 
-- **`--var VAR [VAR ...], -v VAR [VAR ...]`**  
+- ``--var VAR [VAR ...], -v VAR [VAR ...]`` 
   
   Variáveis a carregar.  
-  Exemplo: `--var t2m u v`
+  Exemplo: ``--var t2m u v``
 
-- **`--level LEVEL [LEVEL ...], -l LEVEL [LEVEL ...]`**  
+- ``--level LEVEL [LEVEL ...], -l LEVEL [LEVEL ...]``  
   
   Níveis a carregar.  
   Exemplo: `--level 1000 850`
 
-- **`--list_levels`**  
+- ``--list_levels`` 
   
   Lista todos os níveis disponíveis.
 
-- **`--list_vars`**  
+- ``--list_vars`` 
   
   Lista todas as variáveis disponíveis.
 
 Áreas e shapes
 --------------
 
-- **`--shape SHAPE, -shp SHAPE`**  
+- ``--shape SHAPE, -shp SHAPE``  
   
   Define a abreviação da área (shape).  
   Exemplo: `--shape estados_sp`
 
-- **`--areas {continentes,paises,regioes,estados,bacias,biomas}`**  
+- ``--areas {continentes/paises/regioes/estados/bacias/biomas}``  
   
   Lista as áreas disponíveis por tipo.  
-  Exemplo: `--areas estados`
+  Exemplo: ``--areas estados``
 
 Saída / Output arquivo
 ----------------------
 
-- **`--prefix PREFIX, -p PREFIX`**  
+- ``--prefix PREFIX, -p PREFIX`` 
   
   Prefixo do nome do arquivo NetCDF salvo (default: `MONAN`).  
   Exemplo: `--prefix MEUARQUIVO`
 
-- **`--path PATH, -o PATH`**  
+- ``--path PATH, -o PATH`` 
   
   Diretório de saída onde os arquivos NetCDF serão salvos (default: diretório atual).  
-  Exemplo: `--path ./dados`
+  Exemplo: ``--path ./dados``
 
 
 Exemplos de uso

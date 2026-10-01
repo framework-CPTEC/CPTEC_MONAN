@@ -13,18 +13,13 @@ Biblioteca Python
 Data Inicialização do MONAN
 ----------------------------
 
-  date = 'YYYYMMDD' ou
-  date = 'YYYYMMDDHH'
+  Para saber mais detalhes sobre o uso da opção **date** consultar `Data de Inicialização <usage.html#horarios-de-inicializacao-do-modelo-monan>`_
 
 
 Definição de Steps
 ------------------
 
-  steps = **<int>**
-  
-  steps = **<list>**
-  
-  Define os steps que serão pedidos 
+   Para saber mais detalhes sobre o uso da opção **steps** consultar `Intervalo de Previsão <usage.html#intervalo-de-previsao-do-monan>`_
 
 .. warning::
   O step do MONAN é de 3 em 3 horas
@@ -107,6 +102,21 @@ O pacote **MONAN** oferece duas formas principais de leitura de dados:
 
   Permite selecionar áreas específicas (como estados, regiões ou continentes) usando abreviações de shape.  
   Exemplo: `shp="estados_sp"` para restringir os dados ao estado de São Paulo.
+
+  Para listas as areas existentes utilizar o comando.
+
+>>> mon.list_areas("continentes")
+Usage: type_abbreviation e.g. shp='estados_sp'
+Area    -   type_abbreviation
+Africa - continentes_af
+Antartica - continentes_an
+Asia - continentes_as
+Australia - continentes_au
+Europa - continentes_eu
+Oceania - continentes_oc
+America do Sul - continentes_sa
+America do Norte - continentes_na
+
 
 - **load**  
 
