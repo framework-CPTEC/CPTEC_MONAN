@@ -98,42 +98,41 @@ Recuperar Dados e Plotar Figura
 
 .. code-block:: console
 
-import monanmodel.CPTEC_MONAN as MON
-import matplotlib.pyplot as plt
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
+  import monanmodel.CPTEC_MONAN as MON
+  import matplotlib.pyplot as plt
+  import cartopy.crs as ccrs
+  import cartopy.feature as cfeature
 
-# Inicializa o construtor
-mon = MON.model()
+  # Inicializa o construtor
+  mon = MON.model()
 
+  # Requisição dos dados
+  f = mon.load_shape(date='20260901', var=['t2m'], shp='paises_bra')
 
-# Requisição dos dados
-f = mon.load_shape(date='20260901', var=['t2m'], shp='paises_bra')
+  # Definir tamanho da figura
+  fig = plt.figure(figsize=(10,8))
 
-# Definir tamanho da figura
-fig = plt.figure(figsize=(10,8))
+  # Setar figura unica
+  ax = fig.add_subplot(111, projection=ccrs.PlateCarree())
 
-# Setar figura unica
-ax = fig.add_subplot(111, projection=ccrs.PlateCarree())
+  # Colocar  Linhas de Borda dos paises e linhas costeiras
+  ax.add_feature(cfeature.COASTLINE,color='grey')
+  ax.add_feature(cfeature.BORDERS,color='grey')
 
-# Colocar  Linhas de Borda dos paises e linhas costeiras
-ax.add_feature(cfeature.COASTLINE,color='grey')
-ax.add_feature(cfeature.BORDERS,color='grey')
+  # Definir Regiao do Brasil
+  ax.set_extent([-90,-30,10,-41], ccrs.PlateCarree())
 
-# Definir Regiao do Brasil
-ax.set_extent([-90,-30,10,-41], ccrs.PlateCarree())
-
-# Setar estados do Brasil
-states = cfeature.NaturalEarthFeature(category='cultural',
+  # Setar estados do Brasil
+  states = cfeature.NaturalEarthFeature(category='cultural',
                                          name='admin_1_states_provinces_lines',
                                          scale='50m', facecolor='none')
-# Colocar Estados Brasil
-ax.add_feature(states, edgecolor='gray')
+  # Colocar Estados Brasil
+  ax.add_feature(states, edgecolor='gray')
 
-# Plotar variavel
-f.t2m.sel(Time="2026-09-01").plot(cmap="coolwarm")
+  # Plotar variavel
+  f.t2m.sel(Time="2026-09-01").plot(cmap="coolwarm")
 
-plt.show()
+  plt.show()
 
  
 .. image:: _static/t2m_bra.png
