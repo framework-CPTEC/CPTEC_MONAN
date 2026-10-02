@@ -15,3 +15,10 @@ Instalação
 .. code-block:: console
 
   pip install cptec-monan
+
+
+**Help**
+  
+.. code-block:: console
+
+  python3 -c "import monanmodel.CPTEC_MONAN as MON; help(MON)"

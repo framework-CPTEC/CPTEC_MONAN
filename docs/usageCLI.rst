@@ -35,12 +35,12 @@ Opções gerais
 
 - ``--date DATE, -d DATE``  
 
-  Define a data da condição inicial no formato `YYYYMMDDHH.  
+  Define a data da condição inicial no formato YYYYMMDDHH.  
   Exemplo: ``--date 2026092800`` 
 
 .. warning::
 
-  Trocar por data atual ou consultar datas no Dataserver do CPTEC.
+  Trocar 2026092800 por data atual ou consultar datas disponíveis no Dataserver do CPTEC.
 
 Controle de steps
 -----------------
@@ -72,9 +72,16 @@ Variáveis e níveis
   
   Lista todos os níveis disponíveis.
 
+.. code-block:: console
+   monan_load --list_levels
+
 - ``--list_vars`` 
   
   Lista todas as variáveis disponíveis.
+
+.. code-block:: console
+   monan_load --list_vars
+
 
 Áreas e shapes
 --------------
@@ -84,10 +91,13 @@ Variáveis e níveis
   Define a abreviação da área (shape).  
   Exemplo: `--shape estados_sp`
 
-- ``--areas {continentes/paises/regioes/estados/bacias/biomas}``  
+- ``--list_areas {continentes/paises/regioes/estados/bacias/biomas}``  
   
   Lista as áreas disponíveis por tipo.  
-  Exemplo: ``--areas estados``
+  Exemplo: ``--list_areas estados``
+
+.. code-block:: console
+   monan_load --list_areas estados
 
 Saída / Output arquivo
 ----------------------

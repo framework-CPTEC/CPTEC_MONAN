@@ -80,6 +80,36 @@ Variables at the surface: ['u10m', 'v10m', 't2m', 'slp', 'psfc', 'landmask', 'sb
 Variables at different levels: ['t', 'u', 'v', 'rh', 'g', 'omega', 'spechum']
 
 
+>>> mon.get_var_description()
+           Variable                                               Name        Unit
+0                 t  Temperature interpolated to isobaric surfaces ...           C
+1                 u  Reconstructed zonal wind at cell centers, inte...         m/s
+2                 v  Reconstructed meridional wind at cell centers,...         m/s
+3                rh  Relative humidity interpolated to isobaric sur...           %
+4                 g  Geopotential height interpolated to isobaric s...         gpm
+5             omega  Omega interpolated to isobaric surfaces define...       hPa/s
+6              u10m                                10-meter zonal wind         m/s
+7              v10m                           10-meter meridional wind         m/s
+8               t2m                                2-meter temperature           C
+9               slp                            Mean sea-level pressure          Pa
+10             psfc                         Diagnosed surface pressure          Pa
+11         landmask                                    land-ocean mask         gpm
+12           sbcape              Convective available potential energy        J/kg
+13            sbcin                              Convective inhibition        J/kg
+14               pw                                 Precipitable Water      kg/m^2
+15           precip               Accumulated Convective Precipitation      kg/m^2
+16          spechum  Specific humidity interpolated to isobaric sur...  kg kg^{-1}
+17           rainnc         Accumulated Total grid-scale Precipitation          mm
+18          acswdnb  Accumulated all-sky downward surface shortwave...    W m^{-2}
+19          aclwupb  Accumulated all-sky upward surface longwave ra...    W m^{-2}
+20          aclwupt  accumulated all-sky upward top-of-the-atmosphe...    W m^{-2}
+21               q2                          2-meter specific humidity  kg kg^{-1}
+22              hfx                    Upward heat flux at the surface    W m^{-2}
+23               lh                    Latent heat flux at the surface    W m^{-2}
+24  cldfrac_tot_UPP   Total cloud fraction using UPP column max method    unitless
+25          terrain                                      Terrain heigh           m
+
+
 >>> mon.get_var_description('t')
   Variable                                               Name Unit
 0        t  Temperature interpolated to isobaric surfaces ...    C
