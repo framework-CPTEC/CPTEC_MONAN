@@ -40,7 +40,7 @@ Opções gerais
 
 .. warning::
 
-  Trocar 2026092800 por data atual ou consultar datas disponíveis no Dataserver do CPTEC.
+  Trocar **2026092800** por data atual ou consultar datas disponíveis no Dataserver do CPTEC.
 
 Controle de steps
 -----------------
@@ -73,6 +73,7 @@ Variáveis e níveis
   Lista todos os níveis disponíveis.
 
 .. code-block:: console
+
    monan_load --list_levels
 
 - ``--list_vars`` 
@@ -80,6 +81,7 @@ Variáveis e níveis
   Lista todas as variáveis disponíveis.
 
 .. code-block:: console
+
    monan_load --list_vars
 
 
@@ -97,6 +99,7 @@ Variáveis e níveis
   Exemplo: ``--list_areas estados``
 
 .. code-block:: console
+
    monan_load --list_areas estados
 
 Saída / Output arquivo
