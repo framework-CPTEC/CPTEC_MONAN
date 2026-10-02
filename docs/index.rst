@@ -1,7 +1,7 @@
 CPTEC-MONAN Documentação
 ========================
 
-É um pacote in Python para a distribuição de dados brutos do Moedelo Numérico MONAN do CPTEC/INPE. 
+É um pacote Python para a distribuição de dados brutos do Modelo Numérico MONAN do CPTEC/INPE. 
 
 .. note::
 
@@ -16,7 +16,7 @@ Contents
    /usageCLI
    /usagePython
    /examplesPython
-   /grads
+
 
 
 
