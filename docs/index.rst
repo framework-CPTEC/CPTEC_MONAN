@@ -15,7 +15,6 @@ Contents
    /usage
    /usageCLI
    /usagePython
-   /examplesPython
 
 
 
