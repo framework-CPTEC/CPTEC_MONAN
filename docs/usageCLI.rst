@@ -103,13 +103,13 @@ As opções de latitude e longitude permitem definir uma área geográfica retan
 
 Esse recorte reduz o volume de dados transferidos pela rede, contribuindo para economizar banda, diminuir o tráfego de rede e reduzir o espaço ocupado em disco local.
 
---lat LAT_MIN LAT_MAX
+- ``--lat LAT_MIN LAT_MAX`` 
 
 Define os limites mínimo e máximo de latitude da área de interesse, em graus.
 
 Exemplo: --lat -45 15
 
---lon LON_MIN LON_MAX
+- ``--lon LON_MIN LON_MAX`` 
 
 Define os limites mínimo e máximo de longitude da área de interesse, em graus, utilizando o intervalo de 0° a 360°.
 
@@ -120,10 +120,7 @@ O recorte por coordenadas pode ser utilizado em conjunto com a opção --shape. 
 Exemplo de utilização:
 
 .. code-block:: console
-
-monan_load --date 20261104 --var t2m --range 24 
---lat -45 15 --lon 280 330 
---prefix RECORTE --shape paises_bra
+   monan_load --var t2m --range 24 --lat -45 15 --lon 280 330 --prefix RECORTE --shape paises_bra
 
 Nesse exemplo, os dados são inicialmente recortados para a região delimitada pelas coordenadas de latitude e longitude. Em seguida, o shape paises_bra é utilizado para aplicar a máscara geográfica correspondente ao território brasileiro.
 
@@ -146,6 +143,15 @@ Dessa forma, a combinação das duas opções permite reduzir o volume de dados 
 .. code-block:: console
 
    monan_load --list_areas estados
+
+.. note::
+
+   Consulte a seção **Recorte geográfico por coordenadas** para obter detalhes
+   sobre como combinar o uso de *shapes* com o recorte por coordenadas.
+   Essa combinação permite reduzir o volume de dados transferidos pela rede,
+   melhorando o desempenho do download e otimizando o uso de banda e espaço
+   em disco local.
+
 
 Saída / Output arquivo
 ----------------------
