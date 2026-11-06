@@ -5,7 +5,7 @@ Instalação
 
 .. code-block:: console
 
-  conda create -n cptec python=3.10
+  conda create -n cptec python=3.11
 
   conda activate cptec
 
