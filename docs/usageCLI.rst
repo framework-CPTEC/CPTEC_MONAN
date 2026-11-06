@@ -84,6 +84,17 @@ Variáveis e níveis
 
    monan_load --list_vars
 
+.. note::
+
+    A partir de **22/10/2026**, os arquivos de saída do modelo numérico **MONAN** passaram a disponibilizar **11 novas variáveis**.
+
+    **Níveis de pressão** (``t,z,y,x``):
+    ``dewpoint`` e ``theta``.
+
+    **Superfície** (``t,y,x``):
+    ``srh_0_3km``, ``srh_0_1km``, ``wind_speed_level1_max``,
+    ``mlcape``, ``mlcin``, ``rli``, ``rki``, ``rwi`` e ``wspd``.
+
 
 Áreas e shapes
 --------------
