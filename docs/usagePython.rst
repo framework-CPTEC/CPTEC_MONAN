@@ -166,3 +166,19 @@ America do Norte - continentes_na
 
    É possível solicitar, em um mesmo pedido, **variáveis de superfície** e **variáveis de níveis**.  
    Dessa forma, o usuário pode combinar diferentes tipos de dados em uma única requisição ao modelo MONAN.
+
+
+Recorte Geográfico por Coordenadas
+----------------------------------
+
+Tanto o método ``load`` quanto o ``load_shape`` suportam parâmetros opcionais de **lat** (latitude) e **lon** (longitude) para delimitar dinamicamente uma região geográfica de interesse através de uma caixa delimitadora (Bounding Box).
+
+As coordenadas de latitude e longitude devem ser passadas no formato de lista contendo os valores limites mínimo e máximo ``[min, max]``.
+
+**Exemplo utilizando o método load para um recorte por coordenadas:**
+
+>>> f = mon.load(lat=[-45, 15], lon=[280, 330])
+
+**Exemplo combinando recorte por coordenadas e um shapefile específico com load_shape:**
+
+>>> f = mon.load_shape(lat=[-45, 15], lon=[280, 330], shp="paises_bra")
