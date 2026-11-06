@@ -113,14 +113,16 @@ Exemplo: --lat -45 15
 
 Define os limites mínimo e máximo de longitude da área de interesse, em graus, utilizando o intervalo de 0° a 360°.
 
-Exemplo: --lon 280 330
+Exemplo: ``--lon 280 330``
 
 O recorte por coordenadas pode ser utilizado em conjunto com a opção --shape. Nesse caso, as coordenadas delimitam a região espacial dos dados recuperados do servidor, enquanto o shape é utilizado posteriormente para aplicar uma máscara geográfica sobre os dados baixados, mantendo somente os pontos pertencentes à área selecionada.
 
 Exemplo de utilização:
 
 .. code-block:: console
+
    monan_load --var t2m --range 24 --lat -45 15 --lon 280 330 --prefix RECORTE --shape paises_bra
+
 
 Nesse exemplo, os dados são inicialmente recortados para a região delimitada pelas coordenadas de latitude e longitude. Em seguida, o shape paises_bra é utilizado para aplicar a máscara geográfica correspondente ao território brasileiro.
 
