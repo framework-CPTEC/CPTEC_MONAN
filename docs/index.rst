@@ -5,7 +5,7 @@ CPTEC-MONAN Documentação
 
 .. note::
 
-   support Python >= 3.10.
+   support Python >= 3.11.
 
 Contents
 --------
