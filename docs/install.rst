@@ -17,6 +17,13 @@ Instalação
   pip install cptec-monan
 
 
+**Via conda**
+  
+.. code-block:: console
+
+  conda install -c conda-forge  cptec-monan
+
+
 **Help**
   
 .. code-block:: console
