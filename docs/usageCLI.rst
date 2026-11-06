@@ -96,6 +96,40 @@ Variáveis e níveis
     ``mlcape``, ``mlcin``, ``rli``, ``rki``, ``rwi`` e ``wspd``.
 
 
+Recorte geográfico por coordenadas
+----------------------------------
+
+As opções de latitude e longitude permitem definir uma área geográfica retangular para limitar a quantidade de dados recuperados do servidor.
+
+Esse recorte reduz o volume de dados transferidos pela rede, contribuindo para economizar banda, diminuir o tráfego de rede e reduzir o espaço ocupado em disco local.
+
+--lat LAT_MIN LAT_MAX
+
+Define os limites mínimo e máximo de latitude da área de interesse, em graus.
+
+Exemplo: --lat -45 15
+
+--lon LON_MIN LON_MAX
+
+Define os limites mínimo e máximo de longitude da área de interesse, em graus, utilizando o intervalo de 0° a 360°.
+
+Exemplo: --lon 280 330
+
+O recorte por coordenadas pode ser utilizado em conjunto com a opção --shape. Nesse caso, as coordenadas delimitam a região espacial dos dados recuperados do servidor, enquanto o shape é utilizado posteriormente para aplicar uma máscara geográfica sobre os dados baixados, mantendo somente os pontos pertencentes à área selecionada.
+
+Exemplo de utilização:
+
+.. code-block:: console
+
+monan_load --date 20261104 --var t2m --range 24 
+--lat -45 15 --lon 280 330 
+--prefix RECORTE --shape paises_bra
+
+Nesse exemplo, os dados são inicialmente recortados para a região delimitada pelas coordenadas de latitude e longitude. Em seguida, o shape paises_bra é utilizado para aplicar a máscara geográfica correspondente ao território brasileiro.
+
+Dessa forma, a combinação das duas opções permite reduzir o volume de dados transferidos e armazenados localmente, evitando a recuperação de informações de regiões que não fazem parte da área de interesse.
+
+
 Áreas e shapes
 --------------
 
